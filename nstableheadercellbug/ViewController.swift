@@ -24,7 +24,7 @@ class Cat {
 }
 
 class MyHeaderCell : NSTableHeaderCell {
-    var cat: Cat = .init()
+//    var cat: Cat = .init()
 
     required init(coder: NSCoder) {
         super.init(coder: coder)
@@ -48,8 +48,12 @@ class ViewController: NSViewController {
         super.viewDidLoad()
         
         for column in tableView.tableColumns {
+            print("default column: \(addr(column.headerCell))")
+            
             let headerCell = MyHeaderCell.init(textCell: column.title)
             column.headerCell = headerCell
+            
+            
         }
     }
 }
